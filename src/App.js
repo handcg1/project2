@@ -1,7 +1,20 @@
 import './App.css';
 import React, {useRef} from 'react';
 import film from './Film-1.png';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchImages } from './actions';
 
+
+/*
+ const images = useSelector(state => state.images);
+  const dispatch = useDispatch();
+
+
+  useEffect(() => {
+    dispatch(fetchImages());
+  }, [dispatch]);
+
+*/
 const host = "https://proj2-api.callanhand.me:8442";
 
 function newPost() {
@@ -41,11 +54,23 @@ function App() {
   }
 
   return (
+
     <div className="App">
 
       {/* TODO: make this modal show up upon page load
           note: it should probably be made into a component
-          b/c it's dynamic */}
+          b/c it's dynamic 
+          
+          {prompt("username:")}
+          */
+          }
+
+        <div> 
+          {images.map(image => <img src={`http://proj2-api.callanhand.me:3443/image/${image}`} />)}
+          {console.log(images)}
+        </div>
+
+
       <div className="username-modal">
         <label>
           Username:
