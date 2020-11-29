@@ -20,3 +20,21 @@ export function fetchImages() {
         });
     };
 }
+
+export function uploadImage(image) {
+    return dispatch => {
+        const formData = new FormData();
+        formData.append('image', image);
+        const options = {
+            method: 'POST',
+            body: formData,
+        }; 
+
+        fetch(`${host}/upload-post`, options)
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            dispatch(fetchImages());
+        });
+    };
+}

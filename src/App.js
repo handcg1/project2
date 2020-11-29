@@ -1,8 +1,8 @@
 import './App.css';
-import React, {useRef} from 'react';
+import React, {useRef, useEffect} from 'react';
 import film from './Film-1.png';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchImages } from './actions';
+import { fetchImages, uploadImage } from './actions';
 
 
 /*
@@ -22,34 +22,50 @@ function newPost() {
 }
 
 
-function uploadImage(image) {
+// function uploadImage(image) {
 
-  const formData = new FormData();
-  formData.append('image', image);
+//   const post = {username, picture, caption}; 
 
-  const options = {
-    method: 'POST',
-    body: formData,
-  };
+//   //const formData = new FormData();
+//   //formData.append('image', image);
 
-  fetch(`${host}/upload-post`, options)
-            .then(response => response.text())
-            .then(data => {
-              console.log(data);
-            });
+//   const options = {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(post),
+//   }
 
-}
+//   fetch(`${host}/upload-post`, options)
+//             .then(response => response.text())
+//             .then(data => {
+//               console.log(data);
+//             });
+
+// }
+
+
 
 
 
 function App() {
+
+
+  const images = useSelector(state => state.images);
+  const dispatch = useDispatch();
+
+
+  useEffect(() => {
+    dispatch(fetchImages());
+  }, [dispatch]);
 
   const fileInputRef = useRef();
 
   const onUpload = event => {
     const fileInput = fileInputRef.current;
     if (fileInput.files.length > 0) {
-      uploadImage(fileInput.files[0]);
+      dispatch(uploadImage(fileInput.files[0]));
     }
   }
 
@@ -65,9 +81,24 @@ function App() {
           */
           }
 
+      <div>
+      <label>
+          Username:
+          <input type="text" name="name" />
+        </label>
+        <input type="file" ref={fileInputRef}/>
+          <button onClick={onUpload}>upload</button>
+      </div>
+
         <div> 
-          {images.map(image => <img src={`http://proj2-api.callanhand.me:3443/image/${image}`} />)}
+        <ul >
+          {images.map(image => <li> <img class="image" src={`http://proj2-api.callanhand.me:3443/image/${image}`} /> </li> )}
+        </ul>
+      
+      
+          
           {console.log(images)}
+          <h1> USERNAME </h1>
         </div>
 
 
@@ -79,10 +110,6 @@ function App() {
         <button>enter</button>
       </div>
 
-      <div>
-        <input type="file" ref={fileInputRef}/>
-          <button onClick={onUpload}>upload</button>
-      </div>
 
       <div className="top-header">
         <button id="button" className="link" onClick={newPost}>&#43;  New Post</button>
