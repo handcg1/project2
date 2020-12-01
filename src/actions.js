@@ -13,10 +13,10 @@ const host = "http://proj2-api.callanhand.me:3443";
 
 export function fetchImages() {
     return dispatch => {
-        fetch(`${host}/images`)
+        fetch(`${host}/load-posts`)
             .then(response => response.json())
             .then(data => {
-                dispatch(loadImages(data.names));
+                dispatch(loadImages(data.post));
             });
     };
 }
@@ -36,10 +36,7 @@ export function uploadImage(image, username, caption) {
         fetch(`${host}/upload-post`, options)
             .then(response => response.text())
             .then(data => {
-                console.log(data);
                 dispatch(fetchImages());
             });
     };
 }
-
-setInterval(uploadImage, 60000);

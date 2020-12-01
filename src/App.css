@@ -28,11 +28,4 @@
   background-color: blue;
 }
 
-ul {
-  list-style-type: none;
-  transform: rotate(180deg);
-}
 
-ul > li {
-  transform: rotate(-180deg);
-}

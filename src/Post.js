@@ -1,13 +1,20 @@
 import React from 'react';
 import './App.css';
 
-//const host = "https://proj2-api.callanhand.me:8442/post";
+const host = "http://proj2-api.callanhand.me:3443";
 
-export function Post() {
+export function Post(props) {
+
+    const post = props.post;
 
     return (
-    <div className="post">
-    </div>
+        <div className="post">
+            <div id="username">{post.username}</div>
+            <div id="caption">{post.caption}</div>
+            <div>
+                <img alt="dog" src={`${host}/image/${post.username}/${post.picture}`}></img>
+            </div>
+        </div>
     );
 
 }

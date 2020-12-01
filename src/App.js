@@ -1,20 +1,9 @@
 import './App.css';
 import React, { useRef, useEffect } from 'react';
 import film from './Film-1.png';
+import {Post} from './Post';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchImages, uploadImage } from './actions';
-
-
-/*
- const images = useSelector(state => state.images);
-  const dispatch = useDispatch();
-
-
-  useEffect(() => {
-    dispatch(fetchImages());
-  }, [dispatch]);
-
-*/
 //const host = "https://proj2-api.callanhand.me:8442";
 
 function newPost() {
@@ -27,6 +16,9 @@ function App() {
   const images = useSelector(state => state.images);
   const dispatch = useDispatch();
 
+  //const initial_images = [{username: 'jennah', caption: 'hey', image: Image}];
+  // OR initial_images = [{username: 'jennah', caption: 'hey', image_url: host/images/image_name}];
+
 
   useEffect(() => {
     dispatch(fetchImages());
@@ -37,7 +29,8 @@ function App() {
   const onUpload = event => {
     const fileInput = fileInputRef.current;
     if (fileInput.files.length > 0) {
-      setTimeout(() => dispatch(uploadImage(fileInput.files[0], document.getElementById("username").value, document.getElementById("caption").value)), 60000);
+      //setTimeout(() => dispatch(uploadImage(fileInput.files[0], document.getElementById("username").value, document.getElementById("caption").value)), 60000);
+      dispatch(uploadImage(fileInput.files[0], document.getElementById("username").value, document.getElementById("caption").value));
     }
   }
 
@@ -60,7 +53,7 @@ function App() {
 
       <div>
         <ul >
-          {images.map(image => <li> <img class="image" alt="insert caption here" src={`http://proj2-api.callanhand.me:3443/image/${image}`} /> </li>)}
+          {images.map(post =>  <Post key={post.id} post={post}/>) }
         </ul>
 
         {/* {console.log(images)} */}
