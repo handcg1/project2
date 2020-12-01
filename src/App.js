@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useRef, useEffect} from 'react';
+import React, { useRef, useEffect } from 'react';
 import film from './Film-1.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchImages, uploadImage } from './actions';
@@ -15,39 +15,11 @@ import { fetchImages, uploadImage } from './actions';
   }, [dispatch]);
 
 */
-const host = "https://proj2-api.callanhand.me:8442";
+//const host = "https://proj2-api.callanhand.me:8442";
 
 function newPost() {
   return (<div className="new-post">modal</div>);
 }
-
-
-// function uploadImage(image) {
-
-//   const post = {username, picture, caption}; 
-
-//   //const formData = new FormData();
-//   //formData.append('image', image);
-
-//   const options = {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(post),
-//   }
-
-//   fetch(`${host}/upload-post`, options)
-//             .then(response => response.text())
-//             .then(data => {
-//               console.log(data);
-//             });
-
-// }
-
-
-
-
 
 function App() {
 
@@ -65,7 +37,7 @@ function App() {
   const onUpload = event => {
     const fileInput = fileInputRef.current;
     if (fileInput.files.length > 0) {
-      dispatch(uploadImage(fileInput.files[0]));
+      setTimeout(() => dispatch(uploadImage(fileInput.files[0], document.getElementById("username").value, document.getElementById("caption").value)), 60000);
     }
   }
 
@@ -73,33 +45,27 @@ function App() {
 
     <div className="App">
 
-      {/* TODO: make this modal show up upon page load
-          note: it should probably be made into a component
-          b/c it's dynamic 
-          
-          {prompt("username:")}
-          */
-          }
-
       <div>
-      <label>
+        <label>
           Username:
-          <input type="text" name="name" />
+          <input id="username" type="text" name="name" />
         </label>
-        <input type="file" ref={fileInputRef}/>
-          <button onClick={onUpload}>upload</button>
+        <label>
+          Caption:
+          <input id="caption" type="text" name="caption"></input>
+        </label>
+        <input type="file" ref={fileInputRef} />
+        <button onClick={onUpload}>upload</button>
       </div>
 
-        <div> 
+      <div>
         <ul >
-          {images.map(image => <li> <img class="image" src={`http://proj2-api.callanhand.me:3443/image/${image}`} /> </li> )}
+          {images.map(image => <li> <img class="image" alt="insert caption here" src={`http://proj2-api.callanhand.me:3443/image/${image}`} /> </li>)}
         </ul>
-      
-      
-          
-          {console.log(images)}
-          <h1> USERNAME </h1>
-        </div>
+
+        {/* {console.log(images)} */}
+        <h1> USERNAME </h1>
+      </div>
 
 
       <div className="username-modal">
