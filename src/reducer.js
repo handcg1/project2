@@ -1,15 +1,15 @@
 import {Action} from './actions';
 
 const initialState = {
-    images: [],
+    posts: [],
 }
 
 export function reducer(state = initialState, action){
     switch(action.type){
-        case Action.LoadImages:
+        case Action.LoadPosts:
             return {
                 ...state,
-                images: action.payload,
+                posts: action.payload,
             };
         default:
             return state;

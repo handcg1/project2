@@ -1,27 +1,27 @@
 export const Action = Object.freeze({
-    LoadImages: 'LoadImages',
+    LoadPosts: 'LoadPosts',
 });
 
-export function loadImages(images) {
+export function loadPosts(posts) {
     return {
-        type: Action.LoadImages,
-        payload: images,
+        type: Action.LoadPosts,
+        payload: posts,
     };
 }
 
 const host = "http://proj2-api.callanhand.me:3443";
 
-export function fetchImages() {
+export function fetchPosts() {
     return dispatch => {
         fetch(`${host}/load-posts`)
             .then(response => response.json())
             .then(data => {
-                dispatch(loadImages(data.post));
+                dispatch(loadPosts(data.post));
             });
     };
 }
 
-export function uploadImage(image, username, caption) {
+export function uploadPost(image, username, caption) {
 
     const formData = new FormData();
     formData.append('image', image);
@@ -36,7 +36,7 @@ export function uploadImage(image, username, caption) {
         fetch(`${host}/upload-post`, options)
             .then(response => response.text())
             .then(data => {
-                dispatch(fetchImages());
+                dispatch(fetchPosts());
             });
     };
 }
