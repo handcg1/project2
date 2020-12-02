@@ -1,5 +1,27 @@
-.App {
+.App, #top-class {
   text-align: center;
+  position: relative;
+  opacity: .5;
+}
+
+.username-modal-header {
+  text-align: center;
+  padding: 20px;
+}
+
+.username-modal-body {
+  text-align: center;
+  padding: 20px;
+}
+
+.username-modal-footer {
+  text-align: center;
+  padding: 20px;
+}
+
+#error {
+  text-align: center;
+  padding: 20px;
 }
 
 .top-header {
@@ -28,4 +50,19 @@
   background-color: blue;
 }
 
+.username-modal {
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  margin: 0 auto;
+  background-color: lightgray;
+  border-radius: 2px;
+  border: black 2px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
