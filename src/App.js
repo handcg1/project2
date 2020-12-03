@@ -13,6 +13,9 @@ function newPost() {
 }
 
 
+
+
+
 function App() {
 
   const [show, setShow] = useState(true);
@@ -43,6 +46,8 @@ function App() {
     }
     setShow(false);
   }
+
+
 
 
   return (
@@ -91,11 +96,10 @@ function App() {
         <a className="link" href="post.html">Profile</a>
       </div>
 
-      <div>
-        <ul >
-          {posts.map(post => <Post key={post.id} post={post} />)}
-        </ul>
-      </div>
+      <div class="grid"> 
+        {posts.map(post => <Post key={post.id} post={post} />)} 
+      </div> 
+
     </div>
 
     
