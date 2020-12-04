@@ -205,4 +205,46 @@
  }
 
 
+#close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
 
+#close:hover,
+#close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.large-picture-modal {
+  height: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  background-color: rgb(0, 0, 0, 0.7);
+
+}
+
+#large-picture {
+  width: 50vw;
+}
+
+#exit-button-pic {
+  position: fixed;
+  right: 0;
+}
+
+#large-pic-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

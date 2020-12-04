@@ -136,11 +136,11 @@ function App() {
       </div>
 
       <div className="grid opacity-element"> 
-        {posts.map(post => <Post key={post.id} post={post} />)} 
+         {posts.map(post => <Post key={post.id} post={post} />)} 
       </div> 
 
     </div>
   );
 }
 
-export default App;
+export default App; 
