@@ -7,6 +7,7 @@ import { fetchPosts, uploadPost } from './actions';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
+
 function App() {
 
   const [showUsernameModal, setshowUsernameModal] = useState(true);
@@ -79,8 +80,8 @@ function App() {
 
 
   return (
-    <div className="App opacity-element" >
 
+    <div className="App opacity-element" >
 
       {/* USERNAME MODAL */}
       <Modal className="username-modal"

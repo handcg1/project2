@@ -9,13 +9,16 @@ export function Post(props) {
 
     return (
         <div className="post">
-            {/* <div id="username">{post.username}</div>
-            <div id="caption">{post.caption}</div> */}
 
-          <img id="picture" alt={`by user ${post.username} - ${post.caption}`} src={`${host}/image/${post.username}/${post.picture}`}></img> 
-           
-           
+        <div id="container">
+          <img id="picture" alt={`${post.picture}`} src={`${host}/image/${post.username}/${post.picture}`}></img> 
+          
+          <div id="text">
+          <div id="caption-display">{post.caption}</div>
+          <div id="username"> {"By," + post.username}</div>
+          </div>
         </div>
+        </div> 
     );
 
 }
