@@ -49,7 +49,7 @@ export function Post(props) {
           
           <div id="text">
           <div id="caption-display">{post.caption}</div>
-          <div id="username"> {"By," + post.username}</div>
+          <div id="username"> {"By " + post.username}</div>
           </div>
         </div>
 
