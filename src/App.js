@@ -37,8 +37,7 @@ function App() {
   const handleClose = () => {
 
     if (username.length < 3) {
-      var errorBox = document.getElementById("error");
-      errorBox.innerHTML = "Please enter a username longer than 2 characters.";
+      alert("Please enter a username longer than 2 characters.");
       return;
     } else {
       var elements = document.getElementsByClassName("opacity-element");
@@ -98,7 +97,6 @@ function App() {
           <input className="username" type="text" onChange={e => setUsername(e.target.value)}></input>
         </Modal.Body>
         <Modal.Footer className="username-modal-footer">
-          <div id="error"></div>
           <Button variant="primary" onClick={handleClose}>
             Enter
             </Button>
@@ -113,15 +111,15 @@ function App() {
         keyboard={false}>
 
         <Modal.Header className="new-post-modal-header">
-          <h2 id="new-post-header">New Post for {username}</h2>
+          <h2 id="new-post-header">{username}'s new post</h2>
         </Modal.Header>
         <Modal.Body className="new-post-modal-body">
-          <div id="picture-input"><span id="select-image-file">Select Image File</span><input type="file" ref={fileInputRef}/></div>
+          <div id="picture-input"><span id="select-image-file">Select Image File</span><input type="file" accept="image/png, image/jpeg, image/jpg" ref={fileInputRef}/></div>
           <div id="caption-input"><textarea id="caption" type="text" placeholder="Enter caption..." onChange={e => setCaption(e.target.value)}></textarea></div>
-          <div><button id="upload-button" class="new-post-button" onClick={closeNewPostModal}>
+          <div><button id="upload-button" className="new-post-button" onClick={closeNewPostModal}>
             <span>Upload Post</span>
           </button></div>
-          <div><button id="exit-button" class="new-post-button" onClick={closeWithoutUploading}>
+          <div><button id="exit-button" className="new-post-button" onClick={closeWithoutUploading}>
             Exit
           </button></div>
         </Modal.Body>
