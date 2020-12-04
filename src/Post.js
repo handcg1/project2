@@ -12,7 +12,7 @@ export function Post(props) {
             {/* <div id="username">{post.username}</div>
             <div id="caption">{post.caption}</div> */}
 
-          <img id="picture" alt={`${post.picture}`} src={`${host}/image/${post.username}/${post.picture}`}></img> 
+          <img id="picture" alt={`by user ${post.username} - ${post.caption}`} src={`${host}/image/${post.username}/${post.picture}`}></img> 
            
            
         </div>

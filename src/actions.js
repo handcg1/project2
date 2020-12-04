@@ -36,6 +36,7 @@ export function uploadPost(image, username, caption) {
         fetch(`${host}/upload-post`, options)
             .then(response => response.text())
             .then(data => {
+                console.log(data);
                 dispatch(fetchPosts());
             });
     };
