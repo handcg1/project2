@@ -4,7 +4,7 @@
 }
 
 .opacity-element {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .username-modal-header {
@@ -38,25 +38,86 @@
   text-decoration: none;
   color: black;
   padding: 12px;
-/*   font-family: 'Alegreya', serif; */
   font-size: 17px;
   margin-top: 30px;
   border: none;
-
   cursor: pointer;
   font-family: 'Inconsolata', monospace;
 }
 
 
 .username-modal {
-  height: 500px;
+  height: 550px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 600px;
-  background-color: rgb(240, 180, 157);
-  border-radius: 5px;
+  background-color: rgb(236, 232, 231);
+  border-radius: 15px;
+}
+
+#start-posting-button {
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  width: 200px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.5s;
+  background-color: rgb(105, 105, 224);
+  color: white;
+  margin-top: 60px;
+}
+
+#start-posting-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#start-posting-button #animation-span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#start-posting-button:hover #animation-span {
+  padding-right: 25px;
+}
+
+#start-posting-button:hover #animation-span:after {
+  opacity: 1;
+  right: 0;
+}
+
+#username-modal-input {
+  margin-top: 70px;
+  width: 200px;
+  height: 20px;
+  font-size: 14px;
+}
+
+#username-symbol {
+  height: 20px;
+  background-color: lightgrey;
+  color: black;
+  font-size: 18px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  border-radius: 2px;
+}
+
+
+#username-modal-description {
+  margin: 20px;
 }
 
 .new-post-modal {
@@ -230,7 +291,6 @@
   transform: translate(-50%, -50%);
   width: 100vw;
   background-color: rgb(0, 0, 0, 0.7);
-
 }
 
 #large-picture {
