@@ -32,14 +32,14 @@ export function Post(props) {
         </div>
 
        
-        {/* Englarge Picture Modal */}
+        {/* LARGE PICTURE MODAL */}
         <Modal className="large-picture-modal"
         animation={false}
         show={showNewImageModal}
         onHide={closeNewImageModal}
         keyboard={false}>
 
-        <Modal.Body className="large-image-modal-body">
+        <Modal.Body className="large-picture-modal-body">
            <div id="large-pic-container"> 
                 <img id="large-picture" alt={`${post.picture}`} src={`${host}/image/${post.username}/${post.picture}`}></img> 
             </div>
