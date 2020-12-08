@@ -1,30 +1,8 @@
 import React , {useState} from 'react';
 import './App.css';
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 
 const host = "http://proj2-api.callanhand.me:3443";
-
-
-function handleClick() {
-//     var modal = document.getElementById("myModal");
-//     var img = document.getElementById("picture");
-//     var modalImg = document.getElementById("img01");
-//     var captionText = document.getElementById("caption");
-//     modal.style.display = "block";
-//     modalImg.src = img.src;
-
-//     var span = document.getElementsByClassName("close")[0];
-
-// // When the user clicks on <span> (x), close the modal
-//   span.onclick = function() { 
-//   modal.style.display = "none";
-//   }
-
-    console.log(":)");
-
-
-}
 
 
 export function Post(props) {

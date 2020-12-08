@@ -91,8 +91,7 @@ function App() {
         animation={false}
         show={showUsernameModal}
         onHide={closeUsernameModal}
-        keyboard={false}
-        disableClose={true}>
+        keyboard={false} >
 
         <Modal.Header className="username-modal-header">
           <h1>Welcome to Memory Stack!</h1>
