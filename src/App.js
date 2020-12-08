@@ -29,12 +29,20 @@ function App() {
     }
   }
 
+  const enableClicks = () => {
+    var elements = document.getElementsByClassName("no-click-element");
+    for (var i = 0; i < elements.length; i++) {
+      elements[i].style.pointerEvents = "auto";
+    }
+  }
+
   const fileInputRef = useRef();
 
   const onUpload = event => {
     const fileInput = fileInputRef.current;
     if (fileInput.files.length > 0) {
-      setTimeout(() => dispatch(uploadPost(fileInput.files[0], username, caption)), 60000);
+      /* setTimeout(() => dispatch(uploadPost(fileInput.files[0], username, caption)), 60000); */
+      dispatch(uploadPost(fileInput.files[0], username, caption));
     }
   }
 
@@ -48,17 +56,14 @@ function App() {
       for (var i = 0; i < elements.length; i++) {
         elements[i].style.opacity = 1;
       }
-      // make elements clickable upon closing username modal
-      var set_elements_clickable = document.getElementsByClassName("no-click-element");
-      for (var j = 0; j < set_elements_clickable.length; j++) {
-        set_elements_clickable[j].style.pointerEvents = "auto";
-      }
+      enableClicks();
       setshowUsernameModal(false);
     }
   }
 
   const closeAndUpload = () => {
     onUpload();
+    enableClicks();
     var elements = document.getElementsByClassName("opacity-element");
     for (var i = 0; i < elements.length; i++) {
       elements[i].style.opacity = 1;
@@ -71,10 +76,12 @@ function App() {
     for (var i = 0; i < elements.length; i++) {
       elements[i].style.opacity = 1;
     }
+    enableClicks();
     setNewPostModal(false);
   }
 
   const newPost = () => {
+    disableClicks();
     var elements = document.getElementsByClassName("opacity-element");
     for (var i = 0; i < elements.length; i++) {
       elements[i].style.opacity = .5;
@@ -101,7 +108,7 @@ function App() {
           <div>
             <span id="username-symbol">&#64;</span>
             <input id="username-modal-input" type="text" placeholder="username" onChange={e => setUsername(e.target.value)}></input>
-            </div>
+          </div>
           <div><button id="start-posting-button" onClick={closeUsernameModal}><span id="animation-span">Start Posting</span></button></div>
         </Modal.Body>
       </Modal>
@@ -117,7 +124,7 @@ function App() {
           <h2 id="new-post-header">{username}'s new post</h2>
         </Modal.Header>
         <Modal.Body className="new-post-modal-body">
-          <div id="picture-input"><span id="select-image-file">Select Image File</span><input type="file" accept="image/png, image/jpeg, image/jpg" ref={fileInputRef}/></div>
+          <div id="picture-input"><span id="select-image-file">Select Image File</span><input type="file" accept="image/png, image/jpeg, image/jpg" ref={fileInputRef} /></div>
           <div id="caption-input"><textarea id="caption" type="text" placeholder="Enter caption..." onChange={e => setCaption(e.target.value)}></textarea></div>
           <div><button id="upload-button" className="new-post-button" onClick={closeAndUpload}>
             <span>Upload Post</span>
@@ -136,9 +143,9 @@ function App() {
         <button className="link" >Profile</button>
       </div>
 
-      <div className="grid opacity-element no-click-element"> 
-         {posts.map(post => <Post key={post.id} post={post} />)} 
-      </div> 
+      <div className="grid opacity-element no-click-element">
+        {posts.map(post => <Post key={post.id} post={post} />)}
+      </div>
 
     </div>
   );

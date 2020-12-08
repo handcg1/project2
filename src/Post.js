@@ -2,7 +2,7 @@ import React , {useState} from 'react';
 import './App.css';
 import Modal from 'react-bootstrap/Modal';
 
-const host = "http://proj2-api.callanhand.me:3443";
+const host = "https://proj2-api.callanhand.me:8442";
 
 
 export function Post(props) {

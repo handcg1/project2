@@ -9,7 +9,7 @@ export function loadPosts(posts) {
     };
 }
 
-const host = "http://proj2-api.callanhand.me:3443";
+const host = "https://proj2-api.callanhand.me:8442";
 
 export function fetchPosts() {
     return dispatch => {
@@ -32,11 +32,11 @@ export function uploadPost(image, username, caption) {
         method: 'POST',
         body: formData,
     };
+
     return dispatch => {
         fetch(`${host}/upload-post`, options)
             .then(response => response.text())
             .then(data => {
-                console.log(data);
                 dispatch(fetchPosts());
             });
     };
