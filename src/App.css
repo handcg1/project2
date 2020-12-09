@@ -261,6 +261,8 @@
  }
 
 
+
+
 #close {
   position: absolute;
   top: 15px;
@@ -268,7 +270,7 @@
   color: #f1f1f1;
   font-size: 40px;
   font-weight: bold;
-  transition: 0.3s;
+  /* transition: 0.3s; */
 }
 
 #close:hover,
@@ -280,12 +282,12 @@
 
 .large-picture-modal {
   height: 100vh;
-  position: absolute;
+  position: absolute; 
   top: 50%;
-  left: 50%;
+  left: 50%; 
   transform: translate(-50%, -50%);
   width: 100vw;
-  background-color: rgb(0, 0, 0, 0.7);
+  background-color: rgb(0, 0, 0, 0.5);
 }
 
 #large-picture {
@@ -303,3 +305,27 @@
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 640px) {
+  .grid {
+      margin-right: 0px;
+      margin-left: 0px;
+      gap: 15px;
+  }
+
+   /* .large-picture-modal {
+    height: 100vh;
+    position: relative; 
+    top: 50%;
+    left: 50%;  
+    transform: none; 
+    width: 100vw;
+    background-color: rgb(0, 0, 0, 0.5);
+  } 
+
+  #large-picture {
+    width: 100vw;
+  } */
+
+
+}  

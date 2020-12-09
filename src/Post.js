@@ -48,7 +48,7 @@ export function Post(props) {
         </Modal.Body>
       </Modal>
         
-        </div> 
+      </div> 
     );
 
 }
