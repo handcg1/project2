@@ -11,6 +11,8 @@ function App() {
 
   const [showUsernameModal, setshowUsernameModal] = useState(true);
   const [showNewPostModal, setNewPostModal] = useState(false);
+  const [showStatusPageModal, setshowStatusPageModal] = useState(false);
+
   const [username, setUsername] = useState("");
   const [caption, setCaption] = useState("");
 
@@ -41,7 +43,7 @@ function App() {
   const onUpload = event => {
     const fileInput = fileInputRef.current;
     if (fileInput.files.length > 0) {
-       dispatch(uploadPost(fileInput.files[0], username, caption));
+      dispatch(uploadPost(fileInput.files[0], username, caption));
     }
   }
 
@@ -62,12 +64,17 @@ function App() {
 
   const closeAndUpload = () => {
     onUpload();
-    enableClicks();
+    setNewPostModal(false);
+    setshowStatusPageModal(true);
+  }
+
+  const closeStatusPageModal = () => {
     var elements = document.getElementsByClassName("opacity-element");
     for (var i = 0; i < elements.length; i++) {
       elements[i].style.opacity = 1;
     }
-    setNewPostModal(false);
+    enableClicks();
+    setshowStatusPageModal(false);
   }
 
   const closeWithoutUploading = () => {
@@ -108,7 +115,7 @@ function App() {
             <span id="username-symbol">&#64;</span>
             <input id="username-modal-input" type="text" placeholder="username" onChange={e => setUsername(e.target.value)}></input>
           </div>
-          <div><button id="start-posting-button" onClick={closeUsernameModal}><span id="animation-span">Start Posting</span></button></div>
+          <div><button className="buttons" onClick={closeUsernameModal}><span id="animation-span">Start Posting</span></button></div>
         </Modal.Body>
       </Modal>
 
@@ -116,7 +123,6 @@ function App() {
       <Modal className="new-post-modal"
         animation={false}
         show={showNewPostModal}
-        onHide={closeAndUpload}
         keyboard={false}>
 
         <Modal.Header className="new-post-modal-header">
@@ -125,10 +131,26 @@ function App() {
         <Modal.Body className="new-post-modal-body">
           <div id="picture-input"><span id="select-image-file">Select Image File</span><input type="file" accept="image/png, image/jpeg, image/jpg" ref={fileInputRef} /></div>
           <div id="caption-input"><textarea id="caption" type="text" placeholder="Enter caption..." onChange={e => setCaption(e.target.value)}></textarea></div>
-          <div><button id="upload-button" className="new-post-button" onClick={closeAndUpload}>
-            <span>Upload Post</span>
+          <div><button id="upload-button" className="buttons" onClick={closeAndUpload}>
+            <span id="animation-span">Upload Post</span>
           </button></div>
-          <div><button id="exit-button" className="new-post-button" onClick={closeWithoutUploading}>
+          <div><button id="exit-button-new-post" className="buttons exit-buttons" onClick={closeWithoutUploading}>
+            Exit
+          </button></div>
+        </Modal.Body>
+      </Modal>
+
+      {/* STATUS PAGE MODAL */}
+      <Modal className="status-page-modal"
+        animation={false}
+        show={showStatusPageModal}
+        keyboard={false}>
+
+        <Modal.Header className="status-page-modal-header">
+          <h2 id="status-page-header">header</h2>
+        </Modal.Header>
+        <Modal.Body className="status-page-modal-body">
+          <div><button className="buttons exit-buttons" onClick={closeStatusPageModal}>
             Exit
           </button></div>
         </Modal.Body>

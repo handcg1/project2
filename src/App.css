@@ -45,9 +45,12 @@
   font-family: 'Inconsolata', monospace;
 }
 
+.status-page-modal {
+  text-align: center;
+}
 
 .username-modal {
-  height: 550px;
+  height: 600px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -57,7 +60,7 @@
   border-radius: 15px;
 }
 
-#start-posting-button {
+.buttons {
   border: none;
   padding: 15px 32px;
   text-align: center;
@@ -69,17 +72,18 @@
   transition: all 0.5s;
   background-color: rgb(105, 105, 224);
   color: white;
+  font-family: 'Inconsolata', monospace;
   margin-top: 60px;
 }
 
-#start-posting-button span {
+.buttons span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-#start-posting-button #animation-span:after {
+.buttons #animation-span:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
@@ -88,13 +92,21 @@
   transition: 0.5s;
 }
 
-#start-posting-button:hover #animation-span {
+.buttons:hover #animation-span {
   padding-right: 25px;
 }
 
-#start-posting-button:hover #animation-span:after {
+.buttons:hover #animation-span:after {
   opacity: 1;
   right: 0;
+}
+
+#upload-button {
+  margin-top: 30px;
+}
+
+#exit-button-new-post {
+  margin-top: 40px;
 }
 
 #username-modal-input {
@@ -115,7 +127,6 @@
   border-radius: 2px;
 }
 
-
 #username-modal-description {
   margin: 20px;
 }
@@ -127,7 +138,18 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 600px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(236, 232, 231);
+  border-radius: 15px;
+}
+
+.status-page-modal {
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  background-color: rgb(236, 232, 231);
   border-radius: 15px;
 }
 
@@ -169,53 +191,9 @@
   text-align: justify;
 }
 
-.new-post-button {
-  border: none;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  width: 200px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.5s;
-  font-family: 'Inconsolata', monospace;
-}
-
-#upload-button {
-  background-color: rgb(105, 105, 224);
-  color: white;
-  margin-bottom: 20px;
-}
-
-#upload-button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-#upload-button span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-#upload-button:hover span {
-  padding-right: 25px;
-}
-
-#upload-button:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-#exit-button {
+.exit-buttons {
   color: rgb(221, 29, 29);
-  background-color: rgba(197, 197, 197, 0.76);
+  background-color: rgb(255, 255, 255);
 }
 
  #picture-input {
@@ -242,7 +220,6 @@
   bottom: 0%;
   display: none;
 }
-
 
 #username {
   font-family: 'Inconsolata', monospace;
@@ -303,3 +280,4 @@
   justify-content: center;
   align-items: center;
 }
+
