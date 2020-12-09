@@ -41,8 +41,7 @@ function App() {
   const onUpload = event => {
     const fileInput = fileInputRef.current;
     if (fileInput.files.length > 0) {
-       setTimeout(() => dispatch(uploadPost(fileInput.files[0], username, caption)), 7200000); 
-      
+       dispatch(uploadPost(fileInput.files[0], username, caption));
     }
   }
 
