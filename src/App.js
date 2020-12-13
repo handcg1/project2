@@ -63,6 +63,11 @@ function App() {
   }
 
   const closeAndUpload = () => {
+    const fileInput = fileInputRef.current;
+    if (fileInput.files.length === 0) {
+      alert("Please choose a file to upload.");
+      return;
+    }
     onUpload();
     setNewPostModal(false);
     setshowStatusPageModal(true);
@@ -154,12 +159,30 @@ function App() {
         keyboard={false}>
 
         <Modal.Header className="status-page-modal-header">
-          <h2 id="status-page-header"> </h2>
+          <h2 id="status-page-header">Stay Tuned...</h2>
         </Modal.Header>
         <Modal.Body className="status-page-modal-body">
+          <div className="sk-circle">
+            <div className="sk-circle1 sk-child"></div>
+            <div className="sk-circle2 sk-child"></div>
+            <div className="sk-circle3 sk-child"></div>
+            <div className="sk-circle4 sk-child"></div>
+            <div className="sk-circle5 sk-child"></div>
+            <div className="sk-circle6 sk-child"></div>
+            <div className="sk-circle7 sk-child"></div>
+            <div className="sk-circle8 sk-child"></div>
+            <div className="sk-circle9 sk-child"></div>
+            <div className="sk-circle10 sk-child"></div>
+            <div className="sk-circle11 sk-child"></div>
+            <div className="sk-circle12 sk-child"></div>
+          </div>
+          <div className="body-status-page"><p>
+             Your picture has been uploaded successfully! Check back in two hours to see your post. :)
+            </p></div>
           <div><button className="buttons exit-buttons" onClick={closeStatusPageModal}>
             Exit
           </button></div>
+
         </Modal.Body>
       </Modal>
 
