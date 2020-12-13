@@ -95,6 +95,13 @@ function App() {
     setNewPostModal(true);
   }
 
+  const menu = () => {
+    const mobile = document.getElementById("mobile");
+
+    mobile.classList.toggle('open');
+
+  }
+
   return (
 
     <div className="App opacity-element" >
@@ -147,7 +154,7 @@ function App() {
         keyboard={false}>
 
         <Modal.Header className="status-page-modal-header">
-          <h2 id="status-page-header">header</h2>
+          <h2 id="status-page-header"> </h2>
         </Modal.Header>
         <Modal.Body className="status-page-modal-body">
           <div><button className="buttons exit-buttons" onClick={closeStatusPageModal}>
@@ -156,13 +163,34 @@ function App() {
         </Modal.Body>
       </Modal>
 
+
+        <div id="menu-button" onClick={menu}> 
+        <svg viewBox="0 0 100 80" width="30" height="30"> 
+        <rect fill="black" width="100" height="15"></rect>
+        <rect fill="black" y="30" width="100" height="15"></rect>
+        <rect fill="black" y="60" width="100" height="15"></rect>
+        </svg>
+
+    
+        </div>
+
+        <div id="mobile"> 
+        <div id="new-post" onClick={newPost}>&#43;  New Post</div>
+        <div> Activity</div>
+        <div> Scheduled Posts</div>
+        <div> Profile</div>
+        </div>
+
+
       <div className="opacity-element top-header no-click-element">
+
         <button id="new-post" className="link" onClick={newPost}>&#43;  New Post</button>
         <button className="link" >Activity</button>
         <img className="image" src={film} alt="camera"></img>
         <button className="link" >Scheduled Posts</button>
         <button className="link" >Profile</button>
       </div>
+
 
       <div className="grid opacity-element no-click-element">
         {posts.map(post => <Post key={post.id} post={post} />)}
