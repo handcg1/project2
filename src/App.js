@@ -9,10 +9,12 @@ import Modal from 'react-bootstrap/Modal';
 
 function App() {
 
+  // modal display states
   const [showUsernameModal, setshowUsernameModal] = useState(true);
   const [showNewPostModal, setNewPostModal] = useState(false);
   const [showStatusPageModal, setshowStatusPageModal] = useState(false);
 
+  // track state of username and caption
   const [username, setUsername] = useState("");
   const [caption, setCaption] = useState("");
 
@@ -52,7 +54,6 @@ function App() {
       alert("Please enter a username longer than 2 characters.");
       return;
     } else {
-      // change opacity back to normal
       var elements = document.getElementsByClassName("opacity-element");
       for (var i = 0; i < elements.length; i++) {
         elements[i].style.opacity = 1;
@@ -102,9 +103,7 @@ function App() {
 
   const menu = () => {
     const mobile = document.getElementById("mobile");
-
     mobile.classList.toggle('open');
-
   }
 
   return (
@@ -177,43 +176,36 @@ function App() {
             <div className="sk-circle12 sk-child"></div>
           </div>
           <div className="body-status-page"><p>
-             Your picture has been uploaded successfully! Check back in two hours to see your post. :)
+            Your picture has been uploaded successfully! Check back in two hours to see your post. :)
             </p></div>
           <div><button className="buttons exit-buttons" onClick={closeStatusPageModal}>
             Exit
           </button></div>
-
         </Modal.Body>
       </Modal>
 
-
-        <div id="menu-button" onClick={menu}> 
-        <svg viewBox="0 0 100 80" width="30" height="30"> 
-        <rect fill="black" width="100" height="15"></rect>
-        <rect fill="black" y="30" width="100" height="15"></rect>
-        <rect fill="black" y="60" width="100" height="15"></rect>
+      <div id="menu-button" onClick={menu}>
+        <svg viewBox="0 0 100 80" width="30" height="30">
+          <rect fill="black" width="100" height="15"></rect>
+          <rect fill="black" y="30" width="100" height="15"></rect>
+          <rect fill="black" y="60" width="100" height="15"></rect>
         </svg>
+      </div>
 
-    
-        </div>
-
-        <div id="mobile"> 
+      <div id="mobile">
         <div id="new-post" onClick={newPost}>&#43;  New Post</div>
         <div> Activity</div>
         <div> Scheduled Posts</div>
         <div> Profile</div>
-        </div>
-
+      </div>
 
       <div className="opacity-element top-header no-click-element">
-
         <button id="new-post" className="link" onClick={newPost}>&#43;  New Post</button>
         <button className="link" >Activity</button>
         <img className="image" src={film} alt="camera"></img>
         <button className="link" >Scheduled Posts</button>
         <button className="link" >Profile</button>
       </div>
-
 
       <div className="grid opacity-element no-click-element">
         {posts.map(post => <Post key={post.id} post={post} />)}
