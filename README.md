@@ -1,4 +1,4 @@
-1. Our app serves as a way to make social media less addicting while still allowing people to be able to stay connected with others. This is an idea that we have been thinking about implementing at some capacity for a while. 
+1. This idea started its journey a few months ago when we both agreed that social media apps like instagram are way too addicting, but they are also nice because you can check in with family and friends. We both go through phases where we delete instagram, and then end up redownloading it to essentially check in on people. While this seems like a good idea, we realized that redownloading it only made us want to check it every 10 minutes. Our app, memory stack, was the answer to these issues. Users can upload images with a username and caption much like instagram, but they aren't actually visible for two hours from the time the user posts it. We originally planned for 7 days but two hours seemed more appropriate for testing purposes. This takes away the "instant gratification" of obsessing over likes, comments, etc., and encourages people to stay in the present and away from their phones.  
 2. Our app is not a to-do list manager 
 3. This website was created by Jenna Horrall and Callan Hand
 4. All the code was written by us
@@ -13,7 +13,7 @@
 13. Our front-end client can be found at https://github.com/handcg1/project2-frontend
 14. Our front-end client is available at https://project2.callanhand.me and you will be redirected to port 443 if you try to access the client through port 80
 15. Our app stores the id, username, picture file name, caption, posted_at date and display_post_at date in a mysql database
-16. We used ufw to block all the ports but port 8442 which we use for SSH 
+16. We used ufw to block all the ports but port 8442 (nginx), 443 (for our front-end website), and the SSH port
 17. Our web service uses JSON to send the post information to and from the database
 18. Our endpoints are appropriately named to reflect the actions they perform such as upload-post, which inserts a post "object" into the database
 19. Yes, our web service includes cors 
